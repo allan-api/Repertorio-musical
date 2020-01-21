@@ -7,6 +7,9 @@
     <title>Msk Repertório</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/app.css" rel="stylesheet">
+    <script src="./classes/js/jquery-3.4.1.min.js"></script>
+    <script src="./classes/js/playlist.js"></script>
+
 </head>
 
 <body>

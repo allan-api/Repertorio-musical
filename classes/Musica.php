@@ -21,7 +21,7 @@ class Musica
 
     public function carregar()
     {
-        $query = "SELECT nome, autor, tom, capotraste, inicio, acordes, link FROM musica WHERE id = :id";
+        $query = "SELECT nome, autor, tom, capotraste, inicio, acordes, link FROM musica WHERE id = :id AND ativo = 1";
         $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':id', $this->id);
@@ -40,6 +40,7 @@ class Musica
     {
         $query = "SELECT id, nome, autor, tom, inicio, capotraste, acordes, link
                   FROM musica
+                  WHERE ativo = 1
                   ORDER BY nome ";
         $conexao = Conexao::pegarConexao();
         $resultado = $conexao->query($query);
@@ -75,7 +76,7 @@ class Musica
 
     public function atualizar()
     {
-        $query = "UPDATE musica SET nome = :nome, tom = :tom, inicio = :inicio, capotraste = :capotraste, acordes = :acordes, link = :link  WHERE id = :id";
+        $query = "UPDATE musica SET nome = :nome, tom = :tom, inicio = :inicio, capotraste = :capotraste, acordes = :acordes, link = :link, data_modificado = now()  WHERE id = :id";
         $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':nome', $this->nome);
@@ -91,7 +92,7 @@ class Musica
     public function excluir()
     {
         $query = "UPDATE playlist SET musica_id = NULL WHERE musica_id = :id;
-        DELETE FROM musica WHERE id = :id";
+        UPDATE musica set ativo = 0, data_modificado = now() WHERE id = :id";
         $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue('id', $this->id);

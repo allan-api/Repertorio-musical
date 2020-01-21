@@ -43,7 +43,15 @@
                             </a>
                         </td>
                         <td><?php echo ucwords($linha['tom'])?></td>
-                        <td><?php echo $linha['capotraste']?>ª casa</td>
+                        <td>
+                            <?php 
+                            if($linha['capotraste'] != 0) {
+                                echo $linha['capotraste']
+                            ?>ª casa
+                            <?php } else { ?>
+                                Nenhuma
+                            <?php } ?>
+                        </td>
                         <td><?php echo ucfirst($linha['inicio'])?></td>
                         <td><?php echo ucwords($linha['acordes'])?></td>
                         <td><a href="./musicas-editar.php?id=<?php echo $linha['id'] ?>" class="btn btn-info">Editar</a></td>

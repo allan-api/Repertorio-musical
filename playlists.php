@@ -24,8 +24,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
+                <th>Id<span class="glyphicon glyphicon-arrow-down" onclick="ordenarPorId()"></span></th>
                     <th>Nome</th>
+                    <th>Exibir na Home</th>
                     <th class="acao">Editar</th>
                     <th class="acao">Excluir</th>
                 </tr>
@@ -33,8 +34,9 @@
             <tbody>
                 <?php foreach ($lista as $linha): ?>
                     <tr>
-                        <td><a href="./playlists-detalhe.php?id=<?php echo $linha['id'] ?>" class="btn btn-link"><?php echo $linha['id'] ?></a></td>
-                        <td><a href="./playlists-detalhe.php?id=<?php echo $linha['id'] ?>" class="btn btn-link"><?php echo $linha['nome'] ?></a></td>
+                        <td><?php echo $linha['id']?></td>
+                        <td><?php echo $linha['nome']?></td>
+                        <td><?php echo $linha['exibir_home']? "Sim" : "Não";?></td>
                         <td><a href="./playlists-editar.php?id=<?php echo $linha['id'] ?>" class="btn btn-info">Editar</a></td>
                         <td><a href="./playlists-excluir-post.php?id=<?php echo $linha['id'] ?>" class="btn btn-danger">Excluir</a></td>
                     </tr>
