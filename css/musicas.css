@@ -1,0 +1,20 @@
+﻿#buscar{
+    display: flex; 
+    justify-content: flex-end;
+}
+
+#divBuscar{
+    width: 350px;
+}
+
+.form-control{
+    text-align: center;
+}
+
+@media(max-width: 700px)
+{
+    #divBuscar{
+        width: 100%;
+        padding: 30px  ;
+    }
+}

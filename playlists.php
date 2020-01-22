@@ -17,6 +17,16 @@
     <div class="col-md-4">
         <a href="playlists-criar.php" class="btn btn-info btn-block">Crair Nova Playlist</a>
     </div>
+    <div class="row" id="buscar">
+        <div class="input-group" id="divBuscar">
+            <input type="text" class="form-control" placeholder="Buscar Playlist" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
 </div>
 
 <div class="row">

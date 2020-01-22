@@ -98,4 +98,13 @@ class Musica
         $stmt->bindValue('id', $this->id);
         $stmt->execute();
     }
+    
+    public static function paginar($inicio, $qtdPorPagina)
+    {
+        $query = "SELECT * FROM musica WHERE ativo = 1 LIMIT $inicio, $qtdPorPagina";
+        $conexao = Conexao::pegarConexao();
+        $resultado = $conexao->query($query);
+        $lista = $resultado->fetchAll();
+        return $lista;
+    }
 }

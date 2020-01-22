@@ -1,7 +1,7 @@
 <?php require_once 'global.php' ?>
 <?php
     try {
-        $lista = Musica::listar();
+        require_once 'paginacao-musica.php';
     } catch (Exception $e) {
         Erro::trataErro($e);
     }
@@ -11,14 +11,24 @@
     <div class="col-md-12">
         <h2>Músicas</h2>
     </div>
+    
 </div>
-
 <div class="row">
     <div class="col-md-4">
         <a href="musicas-criar.php" class="btn btn-info btn-block">Inserir Nova Música</a>
     </div>
+    <div class="row" id="buscar">
+        <div class="input-group" id="divBuscar">
+            <input type="text" class="form-control" placeholder="Buscar Música" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
 </div>
-
+<br>
 <div class="row">
     <div class="col-md-12">
         <?php if (count($lista) > 0): ?>
@@ -38,7 +48,7 @@
                     <?php foreach ($lista as $linha): ?>
                     <tr>
                         <td>
-                            <a href="http://<?php echo $linha['link']?>" target="_blank">
+                            <a href="<?php echo $linha['link']?>" target="_blank">
                             <?php echo ucwords($linha['nome'])?>
                             </a>
                         </td>
@@ -65,4 +75,6 @@
         <?php endif ?>
     </div>
 </div>
+<?php require_once 'paginacao.php'?>
+
 <?php require_once 'rodape.php' ?>
